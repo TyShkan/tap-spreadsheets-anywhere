@@ -8,7 +8,7 @@ TEST_CRAWL_SPEC = {
     "tables": [
         {
             "crawl_config": "true",
-            "path": "file://./tap_spreadsheets_anywhere/test",
+            "path": "file://./test",
             "pattern": ".*\\.xlsx",
             "start_date": "2017-05-01T00:00:00Z"
         }
