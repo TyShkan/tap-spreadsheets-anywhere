@@ -29,7 +29,6 @@ jobs:
           python -m pip install google-cloud-storage
 
       - name: Test with pytest
-        working-directory: ../
         run: |
           cd ../
           pwd
