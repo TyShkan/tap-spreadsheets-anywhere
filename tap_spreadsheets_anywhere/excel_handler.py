@@ -2,7 +2,7 @@ import re
 import openpyxl
 import logging
 
-import xlrd
+import xlrd3 as xlrd
 
 LOGGER = logging.getLogger(__name__)
 
