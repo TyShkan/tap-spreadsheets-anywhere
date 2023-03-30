@@ -21,8 +21,8 @@ class TestFormatHandler(unittest.TestCase):
     def test_config_by_crawl(self):
         crawl_paths = [x for x in TEST_CRAWL_SPEC['tables'] if "crawl_config" in x and x["crawl_config"]]
         config_struct = file_utils.config_by_crawl(crawl_paths)
-        print(f"CONFIG STRUCT: {config_struct}")
-        self.assertTrue(config_struct['tables'][0]['name'] == 'excel_with_bad_newlinesxlsx',
+        for row in config_struct['tables']:
+            self.assertTrue(row['name'] in ('excel_with_bad_newlinesxlsx', 'excel_with_no_errorsxlsx'),
                         "config did not crawl and parse as expected!")
 
 

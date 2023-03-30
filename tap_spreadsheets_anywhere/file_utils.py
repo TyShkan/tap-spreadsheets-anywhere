@@ -254,7 +254,6 @@ def list_files_in_local_bucket(bucket, search_prefix=None):
     LOGGER.info(f"Walking {path}.")
     max_results = 10000
     for (dirpath, dirnames, filenames) in walk(path):
-        LOGGER.warning(f"FILES: {dirpath}, {dirnames}, {filenames}")
         for filename in filenames:
             abspath = os.path.join(dirpath,filename)
             relpath = os.path.relpath(abspath, path)
