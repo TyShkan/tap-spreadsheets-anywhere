@@ -29,6 +29,6 @@ jobs:
           python -m pip install google-cloud-storage
 
       - name: Test with pytest
-        working-directory: ./
+        working-directory: ../
         run: |
           python -m pytest -v -rf -p no:warnings
