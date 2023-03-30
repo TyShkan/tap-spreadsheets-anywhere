@@ -1,9 +1,6 @@
 name: Build
 
-on:
-  push:
-    branches:
-      - main
+on: [ push ]
 
 jobs:
 
@@ -13,26 +10,23 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - python-version: '3.7'
-          - python-version: '3.8'
-          - python-version: '3.9'
-          - python-version: '3.10'
-          - python-version: '3.11'
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up PDM
-        uses: pdm-project/setup-pdm@main
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
-          pdm sync -d -G testing
+          python -m pip install --upgrade pip setuptools
+          pip install pytest
+          python setup.py install
 
-      - name: Run Tests
+      - name: Test with pytest
         run: |
-          pdm run pytest tap_spreadsheets_anywhere/test/
+          pytest
