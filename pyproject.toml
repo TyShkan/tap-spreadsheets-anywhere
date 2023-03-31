@@ -7,6 +7,9 @@ classifiers = ["Programming Language :: Python :: 3 :: Only"]
 homepage = "https://github.com/ets/tap-spreadsheets-anywhere"
 authors = ["Eric Simmerman"]
 
+[tool.poetry.scripts]
+tap-spreadsheets-anywhere = 'tap_spreadsheets_anywhere:main'
+
 [tool.poetry.dependencies]
 python = ">=3.7,<3.12"
 singer-python = ">=5.0.12"
